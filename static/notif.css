@@ -1,0 +1,31 @@
+/* Notification Bar Styling */
+.notif-bar {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+    transition: top 0.5s ease-in-out;
+    z-index: 9999;
+    font-family: 'kustom', sans-serif;
+}
+
+.notif-bar.show {
+    top: 0; /* Slide the notification into view */
+}
+
+#notifText {
+    margin: 0;
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 600px) {
+    .notif-bar {
+        font-size: 1em;
+        padding: 8px;
+    }
+}

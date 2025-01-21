@@ -1,0 +1,222 @@
+@font-face {
+    font-family: 'kustom';
+    src: url('Espressonal.otf') format('truetype');
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: 'kustom', sans-serif;
+    overflow: hidden;
+}
+
+.container, .author-text {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 400px;
+    font-family: 'kustom', sans-serif;
+    margin-top: 20px;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-size: 2em;
+}
+
+#fileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Add smooth transition for transformation */
+    width: 100%;
+    font-size: 1em;
+    position: relative;
+}
+
+input[type="file"]:focus {
+    outline: none;
+    transform: scale(1.1); /* Grow effect on focus */
+}
+
+input[type="file"]:focus::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid #FFFFFF; /* White border */
+    border-radius: 10px;
+    animation: borderAnimation 0.5s ease-out forwards;
+}
+
+input[type="file"]:active {
+    transform: scale(1.2); /* Bigger grow effect on click */
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    background-color: #FFFFFF;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 15px;
+}
+
+#downloadButton {
+    display: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#downloadButton:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#statusMessage {
+    margin-top: 10px;
+    color: green;
+}
+
+/* Image Result Container */
+#imageResultContainer {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+    display: none;
+}
+
+#imageResult {
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Add margin to separate image from other elements */
+}
+
+/* Author Text Styling */
+.author-text {
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1em;
+    color: #FFFFFF;
+}
+
+.author-text .highlight {
+    font-size: 1.2em;
+    color: #FFD700;
+}
+
+/* Footer Styling */
+footer {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    bottom: 0;
+}
+
+#bugReportButton {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background-color: #3d81f7;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#bugReportButton i {
+    margin-right: 5px;
+}
+
+#bugReportButton:hover {
+    background-color: #3d81f7;
+    transform: scale(1.05);
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    input[type="file"] {
+        font-size: 0.9em;
+    }
+
+    button, #downloadButton {
+        font-size: 0.9em;
+    }
+
+    .author-text {
+        bottom: 80px; /* Adjust for smaller screens */
+    }
+}
+
+/* Animation for the white border */
+@keyframes borderAnimation {
+    0% {
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 1;
+    }
+}
