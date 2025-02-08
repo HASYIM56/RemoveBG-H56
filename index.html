@@ -1,81 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remove Background - HASYIM56</title>
-    <link rel="icon" href="img/H56.png" type="image/png">
-    <link rel="stylesheet" href="https://unpkg.com/pico.css">
-    <link rel="stylesheet" href="static/styles.css">
-    <link rel="stylesheet" href="static/effect.css">
-    <link rel="stylesheet" href="static/author-text.css">
-    <link rel="stylesheet" href="static/pico.classless.conditional.grey.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="static/notif.css"> <!-- Include the notification CSS -->
-</head>
-<body>
-    <main class="container fade-in">
-        <h1 class="fade-in">Remove Image Background</h1>
-        <form id="fileForm" class="fade-in">
-            <input type="file" name="file" id="fileInput" accept="image/*" required>
-            <button type="submit" class="fade-in">Remove Background</button>
-        </form>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Remove Background - HASYIM56</title>  
+    <link rel="icon" href="img/H56.png" type="image/png">  
+    <link rel="stylesheet" href="https://unpkg.com/pico.css">  
+    <link rel="stylesheet" href="static/styles.css">  
+    <link rel="stylesheet" href="static/effect.css">  
+    <link rel="stylesheet" href="static/author-text.css">  
+    <link rel="stylesheet" href="static/pico.classless.conditional.grey.min.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+    <link rel="stylesheet" href="static/notif.css"> <!-- Include the notification CSS -->  
+</head>  
+<body>  
+    <main class="container fade-in">  
+        <header class="header-section">  
+            <h1>Remove Image Background</h1>  
+        </header>  
+        <form id="fileForm" class="fade-in">  
+            <div class="file-input-container">  
+                <label for="fileInput">  
+                    <i class="fas fa-upload"></i> Upload Image  
+                </label>  
+                <input type="file" name="file" id="fileInput" accept="image/*" required>  
+            </div>  
+            <p class="instructions">Masukkan file gambar yang ingin dihapus latar belakangnya, max size gambar 10 MB.</p>  
+            <button type="submit" class="fade-in">Remove Background</button>  
+        </form>  
 
-        <!-- Loading Section -->
-        <div id="loadingContainer" style="display: none; width: 100%; margin-top: 15px;">
-            <div id="loadingBar" style="width: 0; height: 20px; background-color: #4CAF50; border-radius: 8px;"></div>
-            <p id="loadingText" style="color: white; margin-top: 5px; font-family: 'kustom'; text-align: center;">0%</p>
-        </div>
+        <!-- Loading Section -->  
+        <div id="loadingContainer" style="display: none; width: 100%; margin-top: 15px;">  
+            <div id="loadingBar" style="width: 0; height: 20px; background-color: #4CAF50; border-radius: 8px;"></div>  
+            <p id="loadingText" style="color: white; margin-top: 5px; font-family: 'kustom'; text-align: center;">0%</p>  
+        </div>  
 
-        <!-- Image Result Section -->
-        <div id="imageResultContainer" class="fade-in" style="display: none; width: 100%; max-height: 500px; overflow-y: auto; margin-top: 20px;">
-            <img id="imageResult" src="" alt="Image Result" style="max-width: 100%; object-fit: contain; border-radius: 8px;">
-        </div>
+        <!-- Image Result Section -->  
+        <div id="imageResultContainer" class="fade-in" style="display: none; width: 100%; max-height: 500px; overflow-y: auto; margin-top: 20px;">  
+            <img id="imageResult" src="" alt="Image Result" style="max-width: 100%; object-fit: contain; border-radius: 8px;">  
+        </div>  
 
-        <!-- Download Button -->
-        <div style="margin-top: 20px;">
-            <a id="downloadButton" class="fade-in" style="display: none;" download>
-                <i class="fas fa-download"></i> Download Image Without Background
-            </a>
-        </div>
+        <!-- Download Button -->  
+        <div style="margin-top: 20px;">  
+            <a id="downloadButton" class="fade-in" style="display: none;" download>  
+                <i class="fas fa-download"></i> Download Image Without Background  
+            </a>  
+        </div>  
 
-        <div id="statusMessage" class="fade-in"></div>
-    </main>
+        <div id="statusMessage" class="fade-in"></div>  
+    </main>  
 
-    <!-- Author Text Section -->
-    <div class="author-text fade-in">
-        <p>CREATOR :</p>
-        <span class="highlight">HASYIM56</span>
-    </div>
+    <!-- Warning Board Section -->  
+    <div id="warningBoard" class="fade-in">  
+        <i class="fas fa-exclamation-triangle"></i>  
+        <span>Gunakan remove background sebijak mungkin, jangan pakai untuk hal yang tak perlu</span>  
+    </div>  
 
-    <!-- Footer Section -->
-    <footer>
-        <button id="bugReportButton" onclick="window.location.href='bug-report/bugreport.html'">
-            <i class="fas fa-bug"></i> Lapor Bug
-        </button>
-    </footer>
+    <!-- Author Text Section -->  
+    <div class="author-text fade-in">  
+        <p>CREATOR :</p>  
+        <span class="highlight">HASYIM56</span>  
+    </div>  
 
-    <!-- Notification Section -->
-    <div id="notifBar" class="notif-bar">
-        <p id="notifText">Halo DONGO:v, jangan lupa belajar yah :)</p>
-    </div>
+    <!-- Footer Section -->  
+    <footer>  
+        <button id="bugReportButton" onclick="window.location.href='bug-report/bugreport.html'">  
+            <i class="fas fa-bug"></i> Lapor Bug  
+        </button>  
+    </footer>  
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-base64/3.7.2/base64.min.js"></script>
-    <script src="static/script.js"></script>
-    <script src="static/youtube.js"></script>
+    <!-- Notification Section -->  
+    <div id="notifBar" class="notif-bar">  
+        <p id="notifText">Halo DONGO:v, jangan lupa belajar yah :)</p>  
+    </div>  
 
-    <!-- Notification Script -->
-    <script>
-        // Show notification after 2 seconds
-        setTimeout(() => {
-            document.getElementById("notifBar").classList.add("show");
-            // Hide notification after 2 seconds
-            setTimeout(() => {
-                document.getElementById("notifBar").classList.remove("show");
-            }, 3000);
-        }, 2000);
+    <!-- Scripts -->  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-base64/3.7.2/base64.min.js"></script>  
+    <script src="static/script.js"></script>  
+    <script src="static/youtube.js"></script>  
+
+    <!-- Notification Script -->  
+    <script>  
+        // Show notification after 2 seconds  
+        setTimeout(() => {  
+            document.getElementById("notifBar").classList.add("show");  
+            // Hide notification after 2 seconds  
+            setTimeout(() => {  
+                document.getElementById("notifBar").classList.remove("show");  
+            }, 3000);  
+        }, 2000);  
     </script>
-</body>
+
+</body>  
 </html>
