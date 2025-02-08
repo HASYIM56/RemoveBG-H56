@@ -32,21 +32,33 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     width: 90%;
-    max-width: 400px;
+    max-width: 500px;
     font-family: 'kustom', sans-serif;
     margin-top: 20px;
 }
 
 h1 {
     color: #FFFFFF;
-    font-size: 2em;
+    font-size: 2.5em;
+    text-align: left;
+    padding-left: 20px;
 }
 
-#fileForm {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.header-section {
     width: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.file-input-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    position: relative;
 }
 
 input[type="file"] {
@@ -56,31 +68,22 @@ input[type="file"] {
     background: rgba(0, 0, 0, 0.2);
     color: #FFFFFF;
     cursor: pointer;
-    transition: all 0.3s ease; /* Add smooth transition for transformation */
+    transition: all 0.3s ease;
     width: 100%;
     font-size: 1em;
-    position: relative;
+    display: block;
+}
+
+label {
+    font-size: 1.2em;
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 10px;
 }
 
 input[type="file"]:focus {
     outline: none;
-    transform: scale(1.1); /* Grow effect on focus */
-}
-
-input[type="file"]:focus::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border: 2px solid #FFFFFF; /* White border */
-    border-radius: 10px;
-    animation: borderAnimation 0.5s ease-out forwards;
-}
-
-input[type="file"]:active {
-    transform: scale(1.2); /* Bigger grow effect on click */
+    transform: scale(1.1);
 }
 
 button {
@@ -117,7 +120,12 @@ button {
     color: green;
 }
 
-/* Image Result Container */
+.instructions {
+    color: #FFFFFF;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
 #imageResultContainer {
     margin-top: 20px;
     width: 100%;
@@ -130,10 +138,9 @@ button {
     max-width: 100%;
     object-fit: contain;
     border-radius: 8px;
-    margin-bottom: 20px; /* Add margin to separate image from other elements */
+    margin-bottom: 20px;
 }
 
-/* Author Text Styling */
 .author-text {
     position: fixed;
     bottom: 100px;
@@ -149,7 +156,6 @@ button {
     color: #FFD700;
 }
 
-/* Footer Styling */
 footer {
     width: 100%;
     padding: 10px;
@@ -179,31 +185,51 @@ footer {
     transform: scale(1.05);
 }
 
-/* Responsiveness */
 @media (max-width: 600px) {
     .container {
         width: 90%;
         max-width: 100%;
     }
 
-    h1 {
-        font-size: 1.5em;
-    }
+    h1 {  
+        font-size: 1.5em;  
+    }  
 
-    input[type="file"] {
-        font-size: 0.9em;
-    }
+    input[type="file"] {  
+        font-size: 0.9em;  
+    }  
 
-    button, #downloadButton {
-        font-size: 0.9em;
-    }
+    button, #downloadButton {  
+        font-size: 0.9em;  
+    }  
 
-    .author-text {
-        bottom: 80px; /* Adjust for smaller screens */
+    .author-text {  
+        bottom: 80px;  
     }
 }
 
-/* Animation for the white border */
+/* Warning board styling */
+#warningBoard {
+    width: 100%;
+    background-color: #B0B0B0;
+    color: red;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 160px; /* Increased this value for more space */
+    left: 0;
+}
+
+#warningBoard i {
+    color: red;
+    font-size: 1.5em;
+}
+
 @keyframes borderAnimation {
     0% {
         top: -5px;
